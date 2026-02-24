@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taska — To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="noise"></div>
+
+    <header class="header">
+        <div class="header__inner">
+            <div class="logo">
+                <span class="logo__mark">✦</span>
+                <span class="logo__text">Taska</span>
+            </div>
+            <div class="header__stats">
+                <span id="stats-done">0</span> done &nbsp;·&nbsp; <span id="stats-left">0</span> remaining
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+
+        <section class="hero">
+            <h1 class="hero__title">What needs<br><em>to be done?</em></h1>
+        </section>
+
+        <section class="input-section">
+            <form class="add-form" id="add-form">
+                <div class="add-form__field">
+                    <input
+                        type="text"
+                        id="task-input"
+                        class="add-form__input"
+                        placeholder="Add a new task..."
+                        maxlength="200"
+                        autocomplete="off"
+                    >
+                    <button type="submit" class="add-form__btn" aria-label="Add task">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="add-form__priority">
+                    <span class="priority-label">Priority:</span>
+                    <label class="priority-option">
+                        <input type="radio" name="priority" value="low" checked>
+                        <span class="priority-badge priority-badge--low">Low</span>
+                    </label>
+                    <label class="priority-option">
+                        <input type="radio" name="priority" value="medium">
+                        <span class="priority-badge priority-badge--medium">Medium</span>
+                    </label>
+                    <label class="priority-option">
+                        <input type="radio" name="priority" value="high">
+                        <span class="priority-badge priority-badge--high">High</span>
+                    </label>
+                </div>
+            </form>
+        </section>
+
+        <section class="filters-section">
+            <div class="filters">
+                <button class="filter-btn filter-btn--active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="active">Active</button>
+                <button class="filter-btn" data-filter="completed">Completed</button>
+            </div>
+            <button class="clear-btn" id="clear-completed" title="Clear all completed tasks">
+                Clear completed
+            </button>
+        </section>
+
+        <section class="tasks-section">
+            <ul class="task-list" id="task-list">
+            </ul>
+            <div class="empty-state" id="empty-state">
+                <p class="empty-state__text">No tasks yet. Add one above ↑</p>
+            </div>
+        </section>
+
+    </main>
+
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+            <h2 class="modal__title" id="modal-title">Edit task</h2>
+            <textarea class="modal__input" id="modal-input" maxlength="200" rows="3"></textarea>
+            <div class="modal__actions">
+                <button class="modal__btn modal__btn--cancel" id="modal-cancel">Cancel</button>
+                <button class="modal__btn modal__btn--save" id="modal-save">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
