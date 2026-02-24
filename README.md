@@ -28,7 +28,7 @@ No frameworks. No build tools. No dependencies.
 Just open `index.html` in a browser — that's it.
 
 ```bash
-git clone https://github.com/your-username/taska.git
+git clone https://github.com/fgxdu00/taska.git
 cd taska
 open index.html
 ```
